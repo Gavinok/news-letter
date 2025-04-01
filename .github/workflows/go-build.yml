@@ -20,11 +20,11 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
-          go-version: "1.19" # Specify your Go version here
+          go-version: "1.24.1" # Specify your Go version here
 
       - name: Build
         run: |
-          go build -o email.exe ./path/to/your/main.go # Adjust path as needed
+          go build -o email.exe ./main.go # Adjust path as needed
 
       - name: Upload Executable
         uses: actions/upload-artifact@v4
