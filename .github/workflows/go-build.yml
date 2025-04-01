@@ -27,7 +27,7 @@ jobs:
           go build -o email.exe ./path/to/your/main.go # Adjust path as needed
 
       - name: Upload Executable
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: email-executable
           path: email.exe
