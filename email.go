@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/smtp"
 	"os"
+	"strings"
 )
 
 // sendEmail sends an email with HTML content
@@ -26,7 +27,7 @@ func sendEmail(email Email) error {
 	auth := smtp.PlainAuth("", *email.from, *email.password, smtpServer)
 
 	// Send email
-	err = smtp.SendMail(smtpServer+":"+port, auth, *email.from, []string{*email.to}, msg)
+	err = smtp.SendMail(smtpServer+":"+port, auth, *email.from, strings.Split(*email.to, ","), msg)
 	if err != nil {
 		return fmt.Errorf("error sending email: %w", err)
 	}
