@@ -21,5 +21,12 @@ cp ./email.exe /mnt/c/Users/GavinF/Desktop/
 * Setting up app password
 https://support.google.com/mail/answer/185833?hl=en#zippy=%2Cwhy-you-may-need-an-app-password
 
-* tmp
-curl -X POST "https://	f37b292d-a818-4c75-8ff5-8f8bc77b2271:fdf40c67-c707-4053-9380-b9fad77ae8f0@api.mjml.io/v1/render" -H "X-APPLICATION-ID:fdf40c67-c707-4053-9380-b9fad77ae8f0" -H "X-Access-Key:fdf40c67-c707-4053-9380-b9fad77ae8f0" -d '{"mjml":"<mjml><mj-body><mj-container><mj-section><mj-column><mj-text>Hello World</mj-text></mj-column></mj-section></mj-container></mj-body></mjml>"}'
+* Watching Functionality To Preview Working with MJML
+
+#+begin_src bash
+go run main.go -watch -mjml "index.mjml" -html "index.html"
+#+end_src
+
+This will monitor the file index.mjml and generate an html file index.html.
+
+You can preview live changes at http://localhost:8080/

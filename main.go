@@ -73,7 +73,6 @@ func watchMJMLFile(filePath string, htmlFilePath string) {
 					fmt.Println("Error regenerating HTML:", err)
 					continue
 				}
-				fmt.Print(html)
 
 				// Save the generated HTML to a file
 				err = os.WriteFile(htmlFilePath, []byte(html), 0644)
@@ -278,6 +277,21 @@ func main() {
 	e, err := parseArgs()
 
 	if *e.watch {
+		// Convert MJML to HTML immediately on startup
+		data, err := os.ReadFile(*e.mjmlFile)
+		if err != nil {
+			log.Fatal("Error reading MJML file:", err)
+		}
+		html := convertToHtml(string(data))
+
+		// Save the generated HTML to a file
+		err = os.WriteFile(*e.htmlFile, []byte(html), 0644)
+		if err != nil {
+			log.Fatal("Error saving HTML to file:", err)
+		}
+
+		htmlContent = HTML(html) // Update the htmlContent variable
+
 		go watchMJMLFile(*e.mjmlFile, *e.htmlFile)
 		go startServer()
 		// Print the URL for live preview
