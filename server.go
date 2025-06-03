@@ -36,23 +36,23 @@ func serveTemplate(w http.ResponseWriter, r *http.Request) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Preview</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        #preview { border: 1px solid #ccc; padding: 10px; margin-top: 20px; }
+	body { font-family: Arial, sans-serif; }
+	#preview { border: 1px solid #ccc; padding: 10px; margin-top: 20px; }
     </style>
 </head>
 <body>
     <h1>MJML Live Preview</h1>
     <div id="preview"></div>
     <script>
-        const ws = new WebSocket("ws://localhost:8080/ws");
+	const ws = new WebSocket("ws://localhost:8080/ws");
 
-        ws.onmessage = function(event) {
-            document.getElementById("preview").innerHTML = event.data;
-        };
+	ws.onmessage = function(event) {
+	    document.getElementById("preview").innerHTML = event.data;
+	};
 
-        ws.onclose = function() {
-            console.log("WebSocket closed");
-        };
+	ws.onclose = function() {
+	    console.log("WebSocket closed");
+	};
     </script>
 </body>
 </html> `

@@ -58,12 +58,12 @@ func parseArgs() (Email, error) {
 
 	// Parse the flags
 	flag.Parse()
-	
+
 	// Check for required flags
 	if *watch && (*htmlFile == "" || *mjmlFile == "") {
 		return Email{}, fmt.Errorf("watching requires a mjml file to generate from and an html file to output to")
 	}
-	
+
 	if !*watch && (*from == "" || *password == "" || *htmlFile == "") {
 		return Email{}, fmt.Errorf("all flags (from, password, html) are required for sending email")
 	}

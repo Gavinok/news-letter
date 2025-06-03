@@ -30,6 +30,6 @@ func sendEmail(email Email) error {
 	if err != nil {
 		return fmt.Errorf("error sending email: %w", err)
 	}
-	
+
 	return nil
 }
