@@ -24,7 +24,7 @@ jobs:
 
       - name: Build
         run: |
-          go build -o email.exe ./main.go # Adjust path as needed
+          go build -o email.exe ./...
 
       - name: Upload Executable
         uses: actions/upload-artifact@v4
