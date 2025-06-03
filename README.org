@@ -1,0 +1,25 @@
+* Running the program
+#+begin_src bash
+go run main.go -from email@gemail.com -password "$(pass mutt-wizard-personal)" -subject "hello world" -html ./example.html -to "email@gemail.com"
+#+end_src
+
+* Compiling the program for windows
+#+begin_src bash
+GOOS=windows GOARCH=amd64 go build -o email.exe
+#+end_src
+
+* Copying the file over
+#+begin_src bash
+cp ./email.exe /mnt/c/Users/GavinF/Desktop/
+#+end_src
+
+* Running under windows
+#+begin_src powershell
+.\email.exe -from email@email.com -password "TODO" -subject "hello world" -html .\example.html -to "to@to.com"
+#+end_src
+
+* Setting up app password
+https://support.google.com/mail/answer/185833?hl=en#zippy=%2Cwhy-you-may-need-an-app-password
+
+* tmp
+curl -X POST "https://	f37b292d-a818-4c75-8ff5-8f8bc77b2271:fdf40c67-c707-4053-9380-b9fad77ae8f0@api.mjml.io/v1/render" -H "X-APPLICATION-ID:fdf40c67-c707-4053-9380-b9fad77ae8f0" -H "X-Access-Key:fdf40c67-c707-4053-9380-b9fad77ae8f0" -d '{"mjml":"<mjml><mj-body><mj-container><mj-section><mj-column><mj-text>Hello World</mj-text></mj-column></mj-section></mj-container></mj-body></mjml>"}'
